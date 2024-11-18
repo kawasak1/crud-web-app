@@ -4,7 +4,8 @@ from classes import db, User, Patients, PatientDisease, Disease, Discover, Disea
 
 app = Flask(__name__)
 
-app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:1111@localhost:5432/health_rep_db'
+#app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:1111@localhost:5432/health_rep_db'
+app.config['SQLALCHEMY_DATABASE_URI']  = 'postgresql://my_psql_f19l_user:4tvdWo00DWRZnPFvCC7hf4Ca5KDoO3cQ@dpg-cstkn5lumphs73fq8e20-a.oregon-postgres.render.com/my_psql_f19l'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 db.init_app(app)

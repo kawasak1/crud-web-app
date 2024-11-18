@@ -1,0 +1,4 @@
+Flask
+psycopg2
+Flask-SQLAlchemy  # or any ORM library of your choice
+gunicorn  # for production server
