@@ -1,0 +1,2 @@
+#Inititalize
+python app.py
