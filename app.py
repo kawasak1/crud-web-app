@@ -1,11 +1,14 @@
+import os
 from flask import Flask, jsonify, render_template, request
 from datetime import datetime
-from classes import db, User, Patients, PatientDisease, Disease, Discover, DiseaseType, Specialize, Doctor, PublicServant, Country, Record 
+from classes import db, User, Patients, PatientDisease, Disease, Discover, DiseaseType, Specialize, Doctor, PublicServant, Country, Record
+from dotenv import load_dotenv
+load_dotenv()
 
 app = Flask(__name__)
 
 #app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:1111@localhost:5432/health_rep_db'
-app.config['SQLALCHEMY_DATABASE_URI']  = 'postgresql://my_psql_f19l_user:4tvdWo00DWRZnPFvCC7hf4Ca5KDoO3cQ@dpg-cstkn5lumphs73fq8e20-a.oregon-postgres.render.com/my_psql_f19l'
+app.config['SQLALCHEMY_DATABASE_URI']  = os.getenv('DATABASE_URL')
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 db.init_app(app)
@@ -605,4 +608,5 @@ def delete_from_table(table_name):
 
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(host='0.0.0.0', port=10000, debug=True)
+
